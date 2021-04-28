@@ -65,4 +65,63 @@ Ansible configuration files
 		
 Ansible Inventories
 	
-	coming....
+	-Host file is a text file that contains list of target hosts
+	-ping all target host inside hostfile and skip hostKeyChecking prompt: ANSIBLE_HOST_KEY_CHECKING=False ansible all -m ping
+		or we can set the ANSIBLE_HOST_KEY_CHECKING=False as defaults in ansible.cfg file
+	-To get the output printed as one line for each host add -0 at the end of the ansible executable: ansible ubuntu -m ping -o
+	-To list host	
+		single: ansible hostname --list-hosts
+		group: ansible groupname --list-hosts
+		all: ansible all --list-hosts
+	-we can use while card to run specific hosts: ansible ~centos.* -m ping 
+	-to login host as root user we can set host as: 'hostname ansible_user=root' in hosts file
+	-to check the user we have logged in target hosts we can use the command module and pass id as argument
+		ansible all -m command -a 'id' -o
+	-id command : https://www.geeksforgeeks.org/id-command-in-linux-with-examples/#:~:text=id%20command%20in%20Linux%20is,name%20and%20real%20user%20id.
+	-in real scenerio we rather login as user and then give the sudo privilege to it: 'hostname ansible_become=true ansible_become_pass=password'
+	-As standard sshd deamon runs on port 22, but we can configure the sshd on other port on target machine
+		then change the host file as: 'hostname ansible_port=portNumber' or 'hostname:portNumber'
+	-you can use command: "ansible hostname -m command -a 'grep Port /etc/ssh/sshd_config' -o" to confirm the target sshd deamon port
+	-we can add the control host in inventory by 
+		[control]
+		controlHostName ansible_connection=local
+	-we can define ranges for hostname in inventory if they share similarity
+		[groupname]
+		hostname[startRange:endRange]
+	-we can mitigate the duplication of variables by defining the groupvars for same hosts	
+		[group1]
+		hostname[1:2]
+		hostname3:portNumber
+		[group1:vars]
+		ansible_user=root
+	-we can group similar group in inventories
+		[group1]
+		hostname1
+		[group2]
+		hostname2
+		[group3:children]
+		group1
+		group2
+	-we can also pass .yaml file for inventory
+		---
+		control:
+			hosts:
+				controlHostName:
+					ansible_connevtion=local
+		centos:
+			hosts:
+				hostname:
+					ansible_port=2222
+				hostname[2:3]
+			vars:
+				ansible_user=root
+		...
+	-we can also pass .yaml file for inventory
+	-we can use -e to overwrite the variable in inventories
+		ansible all -m ping -e 'ansible_port=22' -o
+
+Ansible modules
+
+
+
+
