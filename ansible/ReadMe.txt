@@ -68,7 +68,7 @@ Ansible Inventories
 	-Host file is a text file that contains list of target hosts
 	-ping all target host inside hostfile and skip hostKeyChecking prompt: ANSIBLE_HOST_KEY_CHECKING=False ansible all -m ping
 		or we can set the ANSIBLE_HOST_KEY_CHECKING=False as defaults in ansible.cfg file
-	-To get the output printed as one line for each host add -0 at the end of the ansible executable: ansible ubuntu -m ping -o
+	-To get the output printed as one line for each host add -o at the end of the ansible executable: ansible ubuntu -m ping -o
 	-To list host	
 		single: ansible hostname --list-hosts
 		group: ansible groupname --list-hosts
@@ -121,6 +121,14 @@ Ansible Inventories
 		ansible all -m ping -e 'ansible_port=22' -o
 
 Ansible modules
+
+-Setup module - the module is automatically executed, when using playbooks to gather useful information as variables, about remote targets.
+
+-With ansible 2.10, the fully qualified name is ansible.builtin.Setup
+
+- To run setup module: 
+	Ansible hostname -m Setup
+
 
 
 
