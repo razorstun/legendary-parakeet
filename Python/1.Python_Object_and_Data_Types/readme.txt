@@ -94,7 +94,7 @@ I/O with basic files in python
     - with open('file.txt') as my_new_file: (using this method we dont need to woory to close the file each time we open)
 - Reading, Writing, Appending modules
     - mode='r'/'w'/'a'/'r+'/'w+' - example - with open('file.txt',mode='a') as my_new_file:
-     
+    
 
 
 
