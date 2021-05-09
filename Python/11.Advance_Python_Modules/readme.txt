@@ -40,3 +40,44 @@ Advance Python Modules
         print(match.group())
     - \d = digit, \w = alphanumeric, \s = whitespace, \D = A non digit, \W = non-alphanumeric, \S = non-whitespace
     - Quantifiers - + = occurs one or more times, {3} = occurs exactly 3 times, {2,4} = occurs 2 to 4 times, {3,} = occurs 3 or more times, * = occur zero or more times, ? = once or none
+    - () to group pattern - re.search(r"(\W\d{2})-(\d{3})-(\d{3})-(\d{4})",text)
+    - we can also compile the group pattern and pass it into re.search(pattern,text)
+    - we can use | operator to search for one or more pattern - re.search(r'cat|dog',"The cat is here")
+    - we can use the wildcard . to get the word with partial pattern
+    - we can use ^ to starts with and $ to find ends with
+    - r"[^\d]" to exclusion all digits from sentence and re.findall(r"[^c.t ]+",sa) to remove specific letter, smbols, numbers
+    - re.findall(r'[\w]+-[\w]+',pattern) to find all pattern witj - in between
+    - re.search(r'cat(fish|nap|claw)',pattern) combine or with other pattern
+
+- Timing with code
+    - we can use time module to check the time taken wile running the code - calculate difference between start and end time.time()
+    - we can also use timeit module
+        - it takes 3 arg stmt(The statment to check), setup(logic of the statement), number(no of time to run)
+        -   import timeit
+            stmt =  '''
+                    func_one(100)
+                    '''
+            setup = '''
+                    def func_one(n):
+                        return list(map(int,range(n)))
+                    '''
+            timeit.timeit(stmt,setup,number=1000)
+
+- Unzipping and Zipping file
+    - zipfile module to zip file
+        -   comp_file = zipfile.ZipFile(zip_file_name.zip,'w')
+            comp_file.write('file1_name',compress_type=zipfile.ZIP_DEFLATED)
+            comp_file.write('file2_name',compress_type=zipfile.ZIP_DEFLATED)
+            comp_file.close()
+    - zipfile to Unzip
+        -   zip_obj =zipfile.ZipFile('comp_file','r')
+            zip_obj.extractall(newfoldername)
+    - zip entire directory using shutil
+        -   import shutil
+            dir_path = "path"
+            out_file_name = ''
+            shutil.make_archive(out_file_name,'zip',dir_path)
+    - unzip using shutil
+        -   shutil.unpack_archive(zip_file_path,'final_unzip','zip')
+    
+
