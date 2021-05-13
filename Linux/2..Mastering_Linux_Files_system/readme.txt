@@ -1,0 +1,22 @@
+Linux file System
+- linux file system is in tree Structures
+- top is / root directory
+    - home directory holds home directory for regular user
+    - /bin - Stores Common Linux user command binaries
+    - /boot - everything that requires for booing the system - bootable linux kernal and bootloader config files
+    - /dev - files representing devices
+    - /etc - Administrative Configuration files
+    - /media - unlike /dev, /media is usually where removable media are mounted
+    - /lib - directory contains kernel modules and those shared library images (the C programming code library) needed to boot the system and run the commands in the root filesystem, ie. by binaries in /bin and /sbin
+    - /mnt - A place to mount external devices
+    - /misc - A directory used to sometime unmount filesystem on request
+    - /opt - directory structure used to store additional software
+    - /proc - information about system resources
+    - /root - the home folder for root user similar to administrator on windows
+    - /sbin - contains Administrative commands binaries for the root user
+    - /tmp - contains temp files used by running application
+    - /usr - contains files pertaining to the user
+    - /var - contains directories of variables data that could be used by various application
+
+- ~ shows path to the current user home directory
+- 
