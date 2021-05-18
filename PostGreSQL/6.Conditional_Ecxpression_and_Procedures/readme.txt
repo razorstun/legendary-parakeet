@@ -84,3 +84,9 @@ VIEWS - a database object that is of a stored query. can be accessed as a virtua
 
 import and export
 -   allow us to import/export from/to csv files - plsql feature
+
+psycopg2
+- import psycopg2 as psycopg2
+- conn = pg2.conn(databasename='',username='',password='')
+- cursor = conn.cursor()
+- cursor.exec('statement')
