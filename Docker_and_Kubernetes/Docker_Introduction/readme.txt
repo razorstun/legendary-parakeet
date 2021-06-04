@@ -240,4 +240,26 @@ Docker Healthchecks
             start_period: 1m
 
 Container image registries
+Dockerhub - default registries
+Docker open source registries - Add TLS and authentication
+
+====================================================================================================
+
+Kubernetes
+
+What K8?
+- popular container Orchestrator
+- taking our containers and we asked it to run and takes series of servers/nodes and decides how to run those container workloads across those nodes
+- Kubernetes is a set of apis that runs on apps in containers to manage a set of servers and then execute your container on docker by default
+- kubectl is the utility provided by k8
+- k8 as a service on cloud / distribution
+
+Why K8/Swarm?
+
+K8 architecture terminology
+- kubectl: CLI to configure k8 and mange apps
+- Node: single server in a K8 clustering
+- Kubelet: Kubernetes agent running on nodes
+- Control plane: Set of containers that manage the cluster
+- control plane((master(etcd, api, scheduler, controller manager, core dns))(nodes(kubelet, kube-proxy)))
 
